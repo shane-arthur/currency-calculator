@@ -27,13 +27,12 @@ export const thunk = store => {
     });
   };
 
-  const getDataIfNeeded = (action) => {
-    const rates = { cad: 'CAD', usd: 'USD' };
-    getData(API_MAPPINGS.GET_RATES(rates.cad, rates.usd)).then(data => {
-      store.dispatch({ type: actionTypes.SET_EXCHANGE_RATES, data, index: action.index });
-      return;
-    });
-  }
+  const getDataIfNeeded = (action, state) => {
+    const exchangeRates = state.currency.exchangeRates;
+    if (checkForNoRates(exchangeRates)) {
+      getRates(exchangeRates, action.index);
+    }
+  };
 
 
   return next => action => {
@@ -44,19 +43,19 @@ export const thunk = store => {
     switch (action.type) {
       case actionTypes.SET_FROM_CURRENCY_TYPE: {
         const state = getState();
-        getDataIfNeeded(action);
+        getDataIfNeeded(action, state);
         break;
       }
 
       case actionTypes.SET_TO_CURRENCY_TYPE: {
         const state = getState();
-        getDataIfNeeded(action);
+        getDataIfNeeded(action, state);
         break;
       }
 
       case actionTypes.SET_FROM_AMOUNT: {
         const state = getState();
-        getDataIfNeeded(action);
+        getDataIfNeeded(action, state);
         break;
       }
 

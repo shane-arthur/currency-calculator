@@ -22,5 +22,5 @@ const formDisplayValues = () => {
 export const initialCalculationState = {
     dropDownItems: dropDownDisplayItems,
     displayValues: formDisplayValues(),
-    exchangeRates: { [CURRENCY_TYPES.CAD]: 1.4731, [CURRENCY_TYPES.USD]: 1.1746, [CURRENCY_TYPES.EUR]: 1 }
+    exchangeRates: { [CURRENCY_TYPES.CAD]: 1.4731, [CURRENCY_TYPES.USD]: 1.1746, [CURRENCY_TYPES.EUR]: 1, default: true }
 };

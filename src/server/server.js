@@ -4,8 +4,8 @@ import express from 'express';
 import httpProxy from 'http-proxy';
 import compression from 'compression';
 
-var webpack = require('webpack');
-var config = require('../../webpack.config');
+const webpack = require('webpack');
+const config = require('../../webpack.config');
 
 const compiler = webpack(config);
 
@@ -53,5 +53,3 @@ server.listen('3000', (err) => {
 });
 
 export default app;
-
-

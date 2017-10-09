@@ -39,15 +39,16 @@ export const stateUtils = {
     },
 
     setExchangeRates: (state, exchangeInfo) => {
-        const exchangeRates = state.exchangeRates;
+        const exchangeRates = { ...state.exchangeRates };
 
         Object.keys(exchangeInfo.rates).forEach(key => {
             exchangeRates[key] = exchangeInfo.rates[key];
         });
 
-        exchangeRates['date'] = exchangeInfo.date;
+        exchangeRates.date = exchangeInfo.date;
+        exchangeRates.default = false;
 
-        return { ...state, exchangeRates }
+        return { ...state, exchangeRates };
     },
 
     calculateCurrency: (state, fromValue, index) => {
@@ -60,15 +61,15 @@ export const stateUtils = {
             if (rate && typeof rate !== 'NaN') {
                 const newOutput = inputUtils.formatValue(fromValue * rate);
                 displayValues = {
-                    ...displayValues, [index]: {
+                    ...displayValues,
+                    [index]: {
                         selectedFrom: state.displayValues[index].selectedFrom,
                         selectedTo: state.displayValues[index].selectedTo,
                         toValue: newOutput,
                         fromValue,
                         showPopover: state.displayValues[index].showPopover
                     }
-                }
-
+                };
             }
 
             return { ...state, displayValues };
@@ -76,5 +77,4 @@ export const stateUtils = {
 
         return { ...state };
     }
-}
-
+};
