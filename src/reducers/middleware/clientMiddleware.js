@@ -7,21 +7,12 @@ export const thunk = store => {
   const getState = store.getState;
 
 
-  const checkForNoRates = (rates) => {
-    let nullRate = false;
-    Object.keys(rates).forEach(key => {
-      if (!rates[key]) {
-        nullRate = true;
-      }
-    });
-    return nullRate;
-  }
+  const checkForNoRates = (rates) => rates.default;
 
   const getRates = (existingRates, index) => {
     const rates = { cad: 'CAD', usd: 'USD' };
     getData(API_MAPPINGS.GET_RATES(rates.cad, rates.usd)).then(data => {
       store.dispatch({ type: actionTypes.SET_EXCHANGE_RATES, data, index });
-      return;
     }).catch(() => {
       store.dispatch({ type: actionTypes.CALCULATE_CURRENCY, index });
     });
@@ -33,7 +24,6 @@ export const thunk = store => {
       getRates(exchangeRates, action.index);
     }
   };
-
 
   return next => action => {
     if (typeof action === 'function') {

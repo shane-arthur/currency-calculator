@@ -1,5 +1,3 @@
-
-/* eslint camelcase : 0, no-use-before-define: 0*/
 import { CALCULATE_CURRENCY, SET_FROM_AMOUNT, SET_FROM_CURRENCY_TYPE, SET_TO_CURRENCY_TYPE, SET_EXCHANGE_RATES, TOGGLE_DISCLAIMER } from '../constants/action-types/ActionTypes';
 import { initialCalculationState } from '../constants/initial-state/initialState';
 import { stateUtils } from './utils/stateUtils';

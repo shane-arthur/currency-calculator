@@ -1,7 +1,7 @@
 const CURRENCY_TYPES = {
-    CAD: "CAD",
-    USD: "USD",
-    EUR: "EUR"
+    CAD: 'CAD',
+    USD: 'USD',
+    EUR: 'EUR'
 };
 
 const componentIndexes = [1, 2, 3];
@@ -15,9 +15,9 @@ const formDisplayValues = () => {
     const displayValues = {};
     componentIndexes.forEach(index => {
         displayValues[index] = initialDisplay;
-    })
+    });
     return displayValues;
-}
+};
 
 export const initialCalculationState = {
     dropDownItems: dropDownDisplayItems,

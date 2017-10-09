@@ -18,10 +18,8 @@ if (window.__REDUX_STATE__) {
 
 const store = configureStore(state);
 ReactDOM.hydrate((
-    <Provider store={store}>
-        <Router>
-            {createRoutes(createBrowserHistory())}
-        </Router>
-    </Provider>), document.getElementById('main'));
-
-
+  <Provider store={store}>
+    <Router>
+      {createRoutes(createBrowserHistory())}
+    </Router>
+  </Provider>), document.getElementById('main'));

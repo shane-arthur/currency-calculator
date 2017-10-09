@@ -1,7 +1,5 @@
-
-
 export const inputUtils = {
     formatValue: (amount) => {
-        return new Number(amount).toFixed(2);
+        return Number(amount).toFixed(2);
     }
-}
+};
