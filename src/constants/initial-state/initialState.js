@@ -5,7 +5,7 @@ const CURRENCY_TYPES = {
 };
 
 const componentIndexes = [1, 2, 3];
-const initialDisplay = { fromValue: 0, "toValue": 0, selectedFrom: CURRENCY_TYPES.CAD, selectedTo: CURRENCY_TYPES.USD, showPopover: false };
+const initialDisplay = { fromValue: 0, toValue: 0, selectedFrom: CURRENCY_TYPES.CAD, selectedTo: CURRENCY_TYPES.USD, showPopover: false };
 
 const dropDownDisplayItems = (() => {
     return Object.keys(CURRENCY_TYPES).map(key => { return CURRENCY_TYPES[key]; });
@@ -22,5 +22,5 @@ const formDisplayValues = () => {
 export const initialCalculationState = {
     dropDownItems: dropDownDisplayItems,
     displayValues: formDisplayValues(),
-    exchangeRates: { [CURRENCY_TYPES.CAD]: null, [CURRENCY_TYPES.USD]: null, [CURRENCY_TYPES.EUR]: 1 }
+    exchangeRates: { [CURRENCY_TYPES.CAD]: 1.4731, [CURRENCY_TYPES.USD]: 1.1746, [CURRENCY_TYPES.EUR]: 1 }
 };

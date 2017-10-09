@@ -9,30 +9,30 @@ import CurrencyCalculatorComponent from '../../components/currency-calculator/cu
 
 class CurrencyCalculatorContainer extends Component {
 
-  _formComponent(index) {
-    const displayValues = this.props.currencyInfo.displayValues[index];
-    return (<div className="child-item"><CurrencyCalculatorComponent
-      displayValues={displayValues}
-      calculateCurrency={this.props.actions.setFromAmount}
-      toggleDisclaimer={this.props.actions.toggleDisclaimer}
-      setFromType={this.props.actions.setFromCurrencyType}
-      setToType={this.props.actions.setToCurrencyType}
-      dropDownItems={this.props.currencyInfo.dropDownItems}
-      index={index}
-      self={this}
-    /></div>);
+  _formComponents() {
+    return Object.keys(this.props.currencyInfo.displayValues).map(key => {
+      const displayValues = this.props.currencyInfo.displayValues[key];
+      return (
+        <div key={key} className="child-item"><CurrencyCalculatorComponent
+          displayValues={displayValues}
+          calculateCurrency={this.props.actions.setFromAmount}
+          toggleDisclaimer={this.props.actions.toggleDisclaimer}
+          setFromType={this.props.actions.setFromCurrencyType}
+          setToType={this.props.actions.setToCurrencyType}
+          dropDownItems={this.props.currencyInfo.dropDownItems}
+          exchangeInfo={this.props.currencyInfo.exchangeRates}
+          index={key}
+          self={this} />
+        </div>);
+    });
   }
 
   render() {
-    const firstComponent = this._formComponent(1);
-    const secondComponent = this._formComponent(2);
-    const thirdComponent = this._formComponent(3);
+    const components = this._formComponents();
 
     return (
       <div className="mainpage-container">
-        {firstComponent}
-        {secondComponent}
-        {thirdComponent}
+        {components}
       </div>
     );
   }

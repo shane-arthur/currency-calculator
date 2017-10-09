@@ -3,14 +3,14 @@ import React from 'react';
 import AdditionalInformationPopover from '../additional-information/additionalInformationPopover';
 
 
-const CurrencyCalculatorComponent = ({ displayValues, calculateCurrency, toggleDisclaimer, setFromType, setToType, dropDownItems, index, self }) => {
+const CurrencyCalculatorComponent = ({ displayValues, calculateCurrency, toggleDisclaimer, setFromType, setToType, dropDownItems, exchangeInfo, index, self }) => {
   const currencyCalculatorWrapper = (input) => {
     calculateCurrency(index, input);
   }
 
   const popover = (() => {
     return displayValues.showPopover ?
-      <AdditionalInformationPopover /> : null;
+      <AdditionalInformationPopover exchangeInfo={exchangeInfo} /> : null;
   })();
 
   return (

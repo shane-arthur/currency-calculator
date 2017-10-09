@@ -22,6 +22,8 @@ export const thunk = store => {
     getData(API_MAPPINGS.GET_RATES(rates.cad, rates.usd)).then(data => {
       store.dispatch({ type: actionTypes.SET_EXCHANGE_RATES, data, index });
       return;
+    }).catch(() => {
+      store.dispatch({ type: actionTypes.CALCULATE_CURRENCY, index });
     });
   };
 

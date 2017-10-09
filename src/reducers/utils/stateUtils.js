@@ -45,6 +45,8 @@ export const stateUtils = {
             exchangeRates[key] = exchangeInfo.rates[key];
         });
 
+        exchangeRates['date'] = exchangeInfo.date;
+
         return { ...state, exchangeRates }
     },
 
