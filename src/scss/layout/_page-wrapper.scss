@@ -23,7 +23,7 @@
 
 .child-item {
     // mobile first
-    width: map-get($mobile_sizes, input-container);
+    width: map-get($mobile_sizes, flex-child-item);
     height: auto;
     margin: auto;
 

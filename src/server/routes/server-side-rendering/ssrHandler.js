@@ -9,7 +9,7 @@ import { initialCalculationState } from '../../../constants/initial-state/initia
 
 const store = configureStore(initialCalculationState);
 const reduxState = escape(JSON.stringify(initialCalculationState));
-
+console.log(reduxState);
 
 export default function (app) {
   app.get('*', (req, res) => {

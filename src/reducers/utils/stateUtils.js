@@ -52,7 +52,10 @@ export const stateUtils = {
     },
 
     calculateCurrency: (state, fromValue, index) => {
-        if (Number(fromValue) !== 0) {
+        const maxInput = 999999;
+        const valueToCalculate = Number(fromValue);
+
+        if (valueToCalculate !== 0 && valueToCalculate < maxInput) {
             const to = ([state.displayValues[index].selectedTo][0]);
             const from = ([state.displayValues[index].selectedFrom][0]);
             const rate = Number(state.exchangeRates[to] / state.exchangeRates[from]);
@@ -75,6 +78,16 @@ export const stateUtils = {
             return { ...state, displayValues };
         }
 
-        return { ...state };
+        else if (maxInput < valueToCalculate) {
+            let displayValues = { ...state.displayValues };
+            let ourSlice = { ...displayValues[index] };
+            ourSlice = { ...ourSlice, toValue : 0 };
+            displayValues = { ...displayValues, [index]: ourSlice };
+
+            return { ...state, displayValues };
+        }
+        else {
+            return { ...state };
+        }
     }
 };

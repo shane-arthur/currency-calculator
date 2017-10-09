@@ -6,6 +6,6 @@
 
 .override-border {
     // salesforce framework readonly style makes the input a label?? thats weird.. shame :/
-    border: 1px solid lightgrey !important;
+    border: map-get($overridden_border, style) map-get($overridden_border, color) !important;
     text-align: center;
 }
