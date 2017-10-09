@@ -1,21 +1,33 @@
+@import "../utils/_media-queries";
+@import "../abstracts/_variables";
+
 .mainpage-container {
-  position: absolute;
-    top:0;
+    font-size:$mobile_font_size;
+    position: absolute;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
     vertical-align: center;
     display: flex;
-    flex-wrap:wrap-reverse !important;
+    flex-wrap: wrap-reverse !important;
     flex-direction: row;
     align-items: center;
     margin: 0 auto;
-    justify-content: space-around
+    justify-content: space-around;
+     @include desktop {
+        font-size: $desktop_font_size;
+    }
 }
 
-.child-item{
-  width: 400px;  
-  height: auto;
-  margin: auto;
+.child-item {
+    // mobile first
+    width: map-get($mobile_sizes, input-container);
+    height: auto;
+    margin: auto;
+
+    @include desktop {
+        width: map-get($desktop_sizes, flex-child-item);
+    }
 }

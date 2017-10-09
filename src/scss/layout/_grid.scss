@@ -1,10 +1,20 @@
-@import '../abstracts/_mixins';
+@import "../abstracts/_variables";
+@import "../abstracts/_mixins";
+@import "../utils/media-queries";
 
-.mainpage-container{
-@include linear-gradient(lightblue, blue);
+.mainpage-container {
+    @include linear-gradient(map-get($gradient_colors, to), map-get($gradient_colors, from));
 }
 
 .content-wrapper {
-    width: 150px !important;
-}
+    font-size: $mobile-font-size !important;
+    margin: map-get($margins_for_display, extra-small);
 
+    // mobile first
+    width: map-get($mobile_sizes, input-container) !important;
+
+    @include desktop {
+        font-size: $desktop_font_size !important;
+        width: map-get($desktop_sizes, input-container) !important;
+    }
+}

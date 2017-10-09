@@ -1,0 +1,14 @@
+$mobile_width_breakpoint: 740px;
+
+$mobile_sizes: (flex-child-item: 75%, input-container: 35%);
+
+$desktop_sizes: (flex-child-item: 400px, input-container: 35%);
+
+$gradient_colors: (to: lightblue, from: blue);
+
+//shame :(
+$margins_for_display: (extra-small: 5px, small: 15px, medium: 25px);
+
+// rems would be better but i think its jigging with salesforce ui framework
+$mobile_font_size: 8px;
+$desktop_font_size: 16px;

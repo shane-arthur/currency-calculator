@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>React Redux Boilerplate</title>
-     <link rel="stylesheet" href="./dist/css/main.css">
-  </head>
-  <body>
-    <div id = "main"><%- html %></div>
-    <script type="text/javascript" charset="utf-8">
-      window.__REDUX_STATE__ = '<%= reduxState %>';
-    </script>
-         <script src="http:\\localhost:3000\dist\bundle.js"></script>
-  </body>
+
+<head>
+  <title>React Redux Boilerplate</title>
+  <link rel="stylesheet" href="./dist/css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
+<body>
+  <div id="main">
+    <%- html %>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    window.__REDUX_STATE__ = '<%= reduxState %>';
+  </script>
+  <script src="http:\\localhost:3000\dist\bundle.js"></script>
+</body>
+
 </html>

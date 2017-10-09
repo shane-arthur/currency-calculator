@@ -1,3 +1,14 @@
-.information-item{
+@import "../abstracts/_variables";
+@import "../utils/media-queries";
+
+.information-item {
     display: block;
+}
+
+.slds-popover__body {
+    font-size: $mobile-font-size !important;
+
+    @include desktop {
+        font-size: $desktop_font_size !important;
+    }
 }

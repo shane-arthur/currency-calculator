@@ -1,9 +1,9 @@
-@import '../../../node_modules/@salesforce-ux/design-system/scss/index';
+@import "../abstracts/_variables";
 
-.open-popover-container{
-    display:block;
+.open-popover-container {
+    display: block;
 }
 
-.popover-container{
-    margin-top:15px;
+.popover-container {
+    margin-top: map-get($margins_for_display, small);
 }

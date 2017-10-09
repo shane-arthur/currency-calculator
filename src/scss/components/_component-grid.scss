@@ -1,15 +1,16 @@
-@import '../../../node_modules/@salesforce-ux/design-system/scss/index';
+@import "../../../node_modules/@salesforce-ux/design-system/scss/index";
+@import "../abstracts/_variables";
 
-.grid-content{
-    margin-left: 25px;
-     @extend .slds-card;
+.grid-content {
+    margin-left: map-get($margins_for_display, medium);
+
+    @extend .slds-card;
 }
 
-.grid-label{
+.grid-label {
     @extend .slds-text-heading_small;
 }
 
-.grid-content{
+.grid-content {
     @extend .slds-media__body;
 }
-
