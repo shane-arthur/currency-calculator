@@ -13,7 +13,7 @@ class CurrencyCalculatorContainer extends Component {
     const displayValues = this.props.currencyInfo.displayValues[index];
     return (<div className="child-item"><CurrencyCalculatorComponent
       displayValues={displayValues}
-      calculateCurrency={this.props.actions.calculateConvertedCurrency}
+      calculateCurrency={this.props.actions.setFromAmount}
       toggleDisclaimer={this.props.actions.toggleDisclaimer}
       setFromType={this.props.actions.setFromCurrencyType}
       setToType={this.props.actions.setToCurrencyType}

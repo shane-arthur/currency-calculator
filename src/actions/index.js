@@ -2,9 +2,9 @@
 import * as types from '../constants/action-types/ActionTypes';
 import { inputUtils } from '../common-utils/inputUtils';
 
-export function calculateConvertedCurrency(index, amount) { // eslint-disable-line import/prefer-default-export, max-len
+export function setFromAmount(index, amount) { // eslint-disable-line import/prefer-default-export, max-len
   amount = inputUtils.formatValue(amount.target.value);
-  return { type: types.CALCULATE_CURRENCY, amount, index };
+  return { type: types.SET_FROM_AMOUNT, amount, index };
 };
 
 export function setFromCurrencyType(index, typeToSet) {

@@ -2,11 +2,10 @@ import { getData } from '../../data/dataFetcher';
 import { API_MAPPINGS } from '../../constants/api/apiMappings';
 import * as actionTypes from '../../constants/action-types/actionTypes';
 
-const fetchActions = [actionTypes.SET_TO_CURRENCY_TYPE, actionTypes.SET_FROM_CURRENCY_TYPE];
-
 export const thunk = store => {
   const dispatch = store.dispatch;
   const getState = store.getState;
+
 
   const checkForNoRates = (rates) => {
     let nullRate = false;
@@ -26,25 +25,36 @@ export const thunk = store => {
     });
   };
 
+  const getDataIfNeeded = (action) => {
+    const rates = { cad: 'CAD', usd: 'USD' };
+    getData(API_MAPPINGS.GET_RATES(rates.cad, rates.usd)).then(data => {
+      store.dispatch({ type: actionTypes.SET_EXCHANGE_RATES, data, index: action.index });
+      return;
+    });
+  }
+
+
   return next => action => {
     if (typeof action === 'function') {
       return action(dispatch, getState);
     }
 
-    switch (fetchActions.includes(action.type)) {
-      case true: {
+    switch (action.type) {
+      case actionTypes.SET_FROM_CURRENCY_TYPE: {
         const state = getState();
-        if (checkForNoRates(state.currency.exchangeRates)) {
-          getRates(state.currency.exchangeRates, action.index);
-        }
+        getDataIfNeeded(action);
         break;
       }
 
-      case false: {
+      case actionTypes.SET_TO_CURRENCY_TYPE: {
         const state = getState();
-        if (checkForNoRates(state.currency.exchangeRates)) {
-          getRates(state.currency.exchangeRates, action.index);
-        }
+        getDataIfNeeded(action);
+        break;
+      }
+
+      case actionTypes.SET_FROM_AMOUNT: {
+        const state = getState();
+        getDataIfNeeded(action);
         break;
       }
 
@@ -55,3 +65,4 @@ export const thunk = store => {
     return next(action);
   };
 };
+

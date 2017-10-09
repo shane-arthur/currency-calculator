@@ -4,45 +4,37 @@ import { inputUtils } from '../../common-utils/inputUtils';
 export const stateUtils = {
     toggleDisclaimer: (state, index) => {
         let displayValues = { ...state.displayValues };
-        //TODO abstract this until a util since its repeated for both types
-        displayValues = {
-            ...displayValues, [index]: {
-                fromValue: state.displayValues[index].fromValue,
-                toValue: state.displayValues[index].toValue,
-                selectedFrom: state.displayValues[index].selectedFrom,
-                selectedTo: state.displayValues[index].selectedTo,
-                showPopover: !state.displayValues[index].showPopover
-            }
-        }
+        let ourSlice = { ...displayValues[index] };
+        ourSlice = { ...ourSlice, showPopover: !state.displayValues[index].showPopover };
+        displayValues = { ...displayValues, [index]: ourSlice };
+
+        return { ...state, displayValues };
+    },
+
+    setFromAmount: (state, amount, index) => {
+        let displayValues = { ...state.displayValues };
+        let ourSlice = { ...displayValues[index] };
+        ourSlice = { ...ourSlice, fromValue: amount };
+        displayValues = { ...displayValues, [index]: ourSlice };
+
         return { ...state, displayValues };
     },
 
     setToCurrencyType: (state, value, index) => {
         let displayValues = { ...state.displayValues };
-        //TODO abstract this until a util since its repeated for both types
-        displayValues = {
-            ...displayValues, [index]: {
-                fromValue: state.displayValues[index].fromValue,
-                toValue: state.displayValues[index].toValue,
-                selectedFrom: state.displayValues[index].selectedFrom,
-                selectedTo: value,
-                showPopover: state.displayValues[index].showPopover
-            }
-        }
+        let ourSlice = { ...displayValues[index] };
+        ourSlice = { ...ourSlice, selectedTo: value };
+        displayValues = { ...displayValues, [index]: ourSlice };
+
         return { ...state, displayValues };
     },
 
     setFromCurrencyType: (state, value, index) => {
         let displayValues = { ...state.displayValues };
-        displayValues = {
-            ...displayValues, [index]: {
-                fromValue: state.displayValues[index].fromValue,
-                toValue: state.displayValues[index].toValue,
-                selectedTo: state.displayValues[index].selectedTo,
-                selectedFrom: value,
-                showPopover: state.displayValues[index].showPopover
-            }
-        }
+        let ourSlice = { ...displayValues[index] };
+        ourSlice = { ...ourSlice, selectedFrom: value };
+        displayValues = { ...displayValues, [index]: ourSlice };
+
         return { ...state, displayValues };
     },
 
@@ -63,7 +55,7 @@ export const stateUtils = {
             const rate = Number(state.exchangeRates[to] / state.exchangeRates[from]);
             let displayValues = { ...state.displayValues };
 
-            if (rate && typeof rate !== 'Nan') {
+            if (rate && typeof rate !== 'NaN') {
                 const newOutput = inputUtils.formatValue(fromValue * rate);
                 displayValues = {
                     ...displayValues, [index]: {
@@ -76,8 +68,10 @@ export const stateUtils = {
                 }
 
             }
+
             return { ...state, displayValues };
         }
+
         return { ...state };
     }
 }
