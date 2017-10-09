@@ -59,4 +59,6 @@ $npm run lint
 - Add noSql integration with mongoose ORM and mongoDB -> Continued below
 
 - Read in the cache bust value from database. Compare the bust time with the timestamp to dynamically set how often we want to grab exchange rates,
-if their is high traffic, but low need for to the second exchange rates, we can increase this cache bust time, without having to redeploy. 
+if their is high traffic, but low need for to the second exchange rates, we can increase this cache bust time, without having to redeploy.
+
+- Remove coupling of the three currency types to easily extend and swap in new currencies. (not too hard just need to read in initialState from noSQL storage).
