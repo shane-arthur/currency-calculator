@@ -1,0 +1,5 @@
+@import '../../../node_modules/@salesforce-ux/design-system/scss/index';
+
+.input-container {
+    @extend .slds-input;
+}

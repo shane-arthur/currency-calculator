@@ -1,0 +1,15 @@
+@import '../../../node_modules/@salesforce-ux/design-system/scss/index';
+
+.grid-content{
+    margin-left: 25px;
+     @extend .slds-card;
+}
+
+.grid-label{
+    @extend .slds-text-heading_small;
+}
+
+.grid-content{
+    @extend .slds-media__body;
+}
+

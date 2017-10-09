@@ -1,0 +1,10 @@
+@import '../abstracts/_mixins';
+
+.mainpage-container{
+@include linear-gradient(lightblue, blue);
+}
+
+.content-wrapper {
+    width: 150px !important;
+}
+

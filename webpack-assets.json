@@ -1,0 +1,12 @@
+{
+  "javascript": {
+    "main": "http://localhost:3000/dist/bundle.js"
+  },
+  "styles": {
+    "main": "http://localhost:3000/dist/main.css"
+  },
+  "assets": {},
+  "webpack": {
+    "version": "3.6.0"
+  }
+}
