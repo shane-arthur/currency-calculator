@@ -28,7 +28,7 @@ const CurrencyCalculatorComponent = ({ displayValues, calculateCurrency, toggleD
 
           <div className="currency-input-container">
             <span className="grid-label content-wrapper"> <p> Converted Value </p></span>
-            <span><input type="number" className="input-container content-wrapper" readOnly value={displayValues.toValue} />
+            <span><input type="number" className="input-container content-wrapper override-border" readOnly value={displayValues.toValue} />
               <select className="select-container content-wrapper" onChange={setToType.bind(this, index)} placeholder="USD" defaultValue="USD">
                 {dropDownItems.map(item => {
                   return <option key={item} value={item}> {item} </option>;

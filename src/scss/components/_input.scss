@@ -3,3 +3,9 @@
 .input-container {
     @extend .slds-input;
 }
+
+.override-border {
+    // salesforce framework readonly style makes the input a label?? thats weird.. shame :/
+    border: 1px solid lightgrey !important;
+    text-align: center;
+}
