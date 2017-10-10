@@ -1,3 +1,4 @@
+import serialize from 'serialize-javascript';
 import { renderToString } from 'react-dom/server';
 import StaticRouter from 'react-router-dom/StaticRouter';
 import { renderRoutes, matchRoutes } from 'react-router-config';
@@ -8,7 +9,7 @@ import configureStore from '../../../store/configureStore';
 import { initialCalculationState } from '../../../constants/initial-state/initialState';
 
 const store = configureStore(initialCalculationState);
-const reduxState = escape(JSON.stringify(initialCalculationState));
+const reduxState = serialize(initialCalculationState);
 
 export default function (app) {
   app.get('*', (req, res) => {
