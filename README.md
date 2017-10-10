@@ -3,6 +3,7 @@
 - This is a application which displays converted currency values according to selected currencies
 - The exchange rate is set when the user commits their first currency conversion
 - Currencies are currently fixed to CAD, USD AND EUR
+- Exchanges rates are fetched from http://fixer.io/ 's api
 
 ## Usage
 
