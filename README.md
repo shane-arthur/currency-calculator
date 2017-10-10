@@ -32,6 +32,8 @@ $npm run lint
 
 - ES6 with babel 6
 
+- Add in ability to switch the base from EUR (doesnt really gain us anything in the client side however)
+
 - Styles provided by Lighting Design System @UX Salesforce team
 
 - SASS for styling
