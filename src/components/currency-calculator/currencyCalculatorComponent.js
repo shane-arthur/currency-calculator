@@ -5,7 +5,6 @@ import AdditionalInformationPopover from '../additional-information/additionalIn
 
 const CurrencyCalculatorComponent = ({ displayValues, calculateCurrency, toggleDisclaimer, setFromType, setToType, dropDownItems, exchangeInfo, index }) => {
   const currencyCalculatorWrapper = (input) => {
-    
     calculateCurrency(index, input);
   };
 

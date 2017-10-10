@@ -21,8 +21,9 @@
         "no-underscore-dangle": 0,
         "react/jsx-no-bind": 0,
         "no-script-url" : 0,
-        "no-undef": 0
-
+        "no-undef": 0,
+        "brace-style": 0,
+        "no-else-return": 0
     },
     "plugins": [
         "react",

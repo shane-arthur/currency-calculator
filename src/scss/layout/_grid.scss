@@ -2,8 +2,19 @@
 @import "../abstracts/_mixins";
 @import "../utils/media-queries";
 
+//hack - shame shame
+input {
+    text-align: center !important;
+}
+
 .mainpage-container {
     @include linear-gradient(map-get($gradient_colors, to), map-get($gradient_colors, from));
+}
+
+.currency-input-container {
+    p, a {
+        margin-left: map-get($margins_for_display, small);
+    }
 }
 
 .content-wrapper {

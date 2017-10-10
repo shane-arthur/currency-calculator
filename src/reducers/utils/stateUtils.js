@@ -55,6 +55,7 @@ export const stateUtils = {
         const maxInput = 999999;
         const valueToCalculate = Number(fromValue);
 
+        // this can be refactored and abstracted much better, less if statements more fn's
         if (valueToCalculate !== 0 && valueToCalculate < maxInput) {
             const to = ([state.displayValues[index].selectedTo][0]);
             const from = ([state.displayValues[index].selectedFrom][0]);
@@ -77,11 +78,11 @@ export const stateUtils = {
 
             return { ...state, displayValues };
         }
-
+        // abstract this to a validation widget, and call in the middleware. If the validation fails kick off an action to the reducer to update the disclaimer at least for now
         else if (maxInput < valueToCalculate) {
             let displayValues = { ...state.displayValues };
             let ourSlice = { ...displayValues[index] };
-            ourSlice = { ...ourSlice, toValue : 0 };
+            ourSlice = { ...ourSlice, toValue: 0 };
             displayValues = { ...displayValues, [index]: ourSlice };
 
             return { ...state, displayValues };

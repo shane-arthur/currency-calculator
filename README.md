@@ -32,6 +32,8 @@ $npm run lint
 
 - ES6 with babel 6
 
+- Styles provided by Lighting Design System @UX Salesforce team
+
 - SASS for styling
 
 - Responsive first mobile views
@@ -45,6 +47,8 @@ $npm run lint
 - hot-reloading with webpack dev server on client & nodemon on server 
 
 ## TODOs / Roadmap
+
+- Add more breakpoints for responsive deign
 
 - Add morgan for logging
 
@@ -62,3 +66,6 @@ $npm run lint
 if their is high traffic, but low need for to the second exchange rates, we can increase this cache bust time, without having to redeploy.
 
 - Remove coupling of the three currency types to easily extend and swap in new currencies. (not too hard just need to read in initialState from noSQL storage).
+
+- Bind redux state with local state, so we can get a snapshot on page reload of the page. This piece will be tightly coupled with the cache-bust feature so I removed it,
+initially it had been implemented.
